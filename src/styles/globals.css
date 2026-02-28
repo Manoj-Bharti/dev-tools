@@ -1,0 +1,29 @@
+@import '@radix-ui/themes/styles.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+/* Custom utility classes to complement Radix */
+@layer utilities {
+  .tool-input {
+    font-family: var(--font-mono);
+    min-height: 200px;
+  }
+  
+  .tool-output {
+    font-family: var(--font-mono);
+    min-height: 200px;
+    background-color: var(--gray-2);
+    border: 1px solid var(--gray-6);
+    border-radius: var(--radius-3);
+    padding: var(--space-4);
+    color: var(--gray-12);
+  }
+}
