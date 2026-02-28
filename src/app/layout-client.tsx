@@ -13,16 +13,16 @@ export function RootLayoutClient({ children }: { children: React.ReactNode }) {
       <Header onMenuClick={() => {}} onSearchClick={() => {}} />
       <Flex gap="4" style={{ minHeight: 'calc(100vh - 64px)' }}>
         <Sidebar />
-        <Box as="main" style={{ flex: 1, padding: '2rem' }}>
+        <main style={{ flex: 1, padding: '2rem' }}>
           {children}
-        </Box>
+        </main>
       </Flex>
 
-      <Box as="footer" style={{ borderTop: '1px solid var(--gray-6)', backgroundColor: 'var(--gray-2)', padding: '1rem' }}>
+      <footer style={{ borderTop: '1px solid var(--gray-6)', backgroundColor: 'var(--gray-2)', padding: '1rem' }}>
         <div style={{ maxWidth: 1120, margin: '0 auto', textAlign: 'center', color: 'var(--gray-11)', fontSize: 14 }}>
           Built with care — all processing happens in your browser.
         </div>
-      </Box>
+      </footer>
 
       <RegisterSW />
     </Box>
