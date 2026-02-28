@@ -30,15 +30,6 @@ test.describe('Navigation', () => {
     }
   })
 
-  test('header search button should be visible and clickable', async ({ page }) => {
-    await page.goto('/')
-    // Search is triggered via header button; ensure it exists
-    await expect(page.locator('button:has-text("Search")')).toBeVisible()
-    await page.click('button:has-text("Search")')
-    // No search modal implemented; at minimum ensure button is interactive
-    await expect(page.locator('button:has-text("Search")')).toBeEnabled()
-  })
-
   test('should navigate via tool card link', async ({ page }) => {
     await page.goto('/')
     await page.click('a[href="/tools/base64"]')

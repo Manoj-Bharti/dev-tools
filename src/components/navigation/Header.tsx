@@ -2,14 +2,15 @@
 
 import Link from 'next/link'
 import { Flex, Box, Button } from '@radix-ui/themes'
-import { MagnifyingGlassIcon, HamburgerMenuIcon, MoonIcon } from '@radix-ui/react-icons'
+import { HamburgerMenuIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
 
 interface HeaderProps {
   onMenuClick: () => void
-  onSearchClick: () => void
+  onThemeToggle?: () => void
+  isDark?: boolean
 }
 
-export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
+export function Header({ onMenuClick, onThemeToggle, isDark }: HeaderProps) {
   return (
     <Box
       style={{
@@ -51,11 +52,8 @@ export function Header({ onMenuClick, onSearchClick }: HeaderProps) {
         </Flex>
 
         <Flex gap="2" align="center">
-          <Button variant="soft" onClick={onSearchClick}>
-            <MagnifyingGlassIcon /> Search
-          </Button>
-          <Button variant="ghost">
-            <MoonIcon />
+          <Button variant="ghost" onClick={onThemeToggle} aria-pressed={isDark}>
+            {isDark ? <MoonIcon /> : <SunIcon />}
           </Button>
         </Flex>
       </Flex>

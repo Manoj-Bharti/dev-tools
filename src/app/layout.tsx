@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
 import '@radix-ui/themes/styles.css'
 import '../styles/globals.css'
-import { Theme } from '@radix-ui/themes'
 import { RootLayoutClient } from './layout-client'
 
 const jetbrainsMono = JetBrains_Mono({
@@ -23,15 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${jetbrainsMono.variable}`}>
-        <Theme
-          appearance="dark"
-          accentColor="cyan"
-          grayColor="slate"
-          radius="medium"
-          scaling="100%"
-        >
-          <RootLayoutClient>{children}</RootLayoutClient>
-        </Theme>
+        <RootLayoutClient>{children}</RootLayoutClient>
       </body>
     </html>
   )
