@@ -138,6 +138,189 @@ export default function DiffTool() {
           </ul>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto mt-16">
+        <section className="mb-12">
+          <h2>What is a Diff?</h2>
+          <p>
+            A diff (difference) shows the changes between two versions of text. It's a fundamental tool in 
+            software development, used for code review, version control, and document comparison. Diffs help 
+            developers understand what changed between versions, making collaboration and debugging much easier.
+          </p>
+          <p>
+            The term "diff" comes from the Unix <code>diff</code> command, which compares files line by line. 
+            Modern diff tools show additions, deletions, and context to make changes clear and actionable.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>How to Use This Diff Checker</h2>
+          
+          <h3 className="text-xl font-semibold mt-6 mb-3">Basic Comparison:</h3>
+          <ol className="space-y-2">
+            <li>Paste your original text in the left panel</li>
+            <li>Paste the modified text in the right panel</li>
+            <li>Click "Compare" to generate the diff</li>
+            <li>Review the highlighted changes below</li>
+          </ol>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">Understanding the Output:</h3>
+          <ul className="space-y-2">
+            <li><strong>Green (+):</strong> Lines added in the new version</li>
+            <li><strong>Red (-):</strong> Lines removed from the original</li>
+            <li><strong>Gray/Context:</strong> Unchanged lines showing surrounding context</li>
+            <li><strong>Line Numbers:</strong> Reference points for locating changes</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Common Use Cases</h2>
+          <ul className="space-y-3">
+            <li>
+              <strong>Code Review:</strong> Review changes before merging pull requests or commits
+            </li>
+            <li>
+              <strong>Version Control:</strong> Understand what changed between file versions
+            </li>
+            <li>
+              <strong>Documentation:</strong> Compare document versions to track changes over time
+            </li>
+            <li>
+              <strong>Configuration Files:</strong> Identify differences in config files between environments
+            </li>
+            <li>
+              <strong>Debugging:</strong> Compare expected vs actual output to find discrepancies
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Types of Diff Output</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Unified Diff</h3>
+              <p>
+                Shows changes in a compact format with context lines. Used by Git and most version control systems. 
+                Lines starting with + are additions, - are deletions, space are context.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Side-by-Side</h3>
+              <p>
+                Shows original and modified text in parallel columns. Easier to read for small changes but takes 
+                more space. This tool shows a visual side-by-side comparison.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Context Diff</h3>
+              <p>
+                Similar to unified but uses different markers (*** and ---) to separate file sections. Less common 
+                but still used in some legacy systems.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Diff Algorithms</h2>
+          <p>
+            Different algorithms produce different diff outputs. This tool uses a line-based comparison that 
+            works well for most text:
+          </p>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Myers Algorithm</h3>
+              <p>
+                Efficient algorithm that finds the minimum number of changes. Used by Git and most modern tools.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Longest Common Subsequence</h3>
+              <p>
+                Finds the longest sequence of unchanged lines, then shows differences around them.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Why do diffs show context lines?</h3>
+              <p>
+                Context lines help you understand where changes occurred. Without context, it would be hard to 
+                know which part of a large file was modified. Most diffs show 3-5 lines of unchanged context around each change.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Can I diff binary files?</h3>
+              <p>
+                This tool is designed for text files. Binary files (images, executables) can't be meaningfully 
+                diffed line by line. Use specialized binary diff tools for those file types.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: What's the difference between diff and patch?</h3>
+              <p>
+                A diff shows the differences between files. A patch is a diff formatted in a way that can be 
+                applied to recreate the changes. The <code>patch</code> command can apply diff output to files.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Why are some lines marked as changed when they look the same?</h3>
+              <p>
+                This usually happens when whitespace changed (spaces vs tabs, trailing spaces) or when the 
+                diff algorithm detects a more complex change pattern. Check for invisible characters.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Command Line Diff Tools</h2>
+          <p>For power users, command-line diff tools offer more options:</p>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Git Diff</h3>
+              <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-x-auto">
+{`git diff file1.txt file2.txt
+git diff --word-diff  # Show word-level changes
+git diff --stat       # Show summary statistics`}
+              </pre>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Unix Diff</h3>
+              <pre className="bg-gray-100 dark:bg-gray-800 p-3 rounded text-sm overflow-x-auto">
+{`diff -u file1.txt file2.txt  # Unified format
+diff -c file1.txt file2.txt  # Context format
+diff -y file1.txt file2.txt  # Side by side`}
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Related Tools</h2>
+          <ul className="space-y-2">
+            <li><a href="/tools/json" className="text-blue-600 dark:text-blue-400 hover:underline">JSON Formatter</a> - Format and compare JSON structures</li>
+            <li><a href="/tools/regex" className="text-blue-600 dark:text-blue-400 hover:underline">Regex Tester</a> - Test patterns for text matching</li>
+            <li><a href="/tools/url" className="text-blue-600 dark:text-blue-400 hover:underline">URL Encoder</a> - Encode URLs for comparison</li>
+          </ul>
+        </section>
+      </article>
     </ToolLayout>
   )
 }

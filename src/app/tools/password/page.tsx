@@ -133,6 +133,168 @@ export default function PasswordTool() {
           </p>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto mt-16">
+        <section className="mb-12">
+          <h2>What Makes a Strong Password?</h2>
+          <p>
+            A strong password is one that's difficult for attackers to guess or crack using automated tools. 
+            Modern password security focuses on length and complexity rather than complex patterns that are 
+            hard to remember. The best passwords are long, random, and unique to each account.
+          </p>
+          <p>
+            Password strength is measured by entropy - the amount of uncertainty in each character. More 
+            character types and longer lengths exponentially increase the difficulty of brute-force attacks.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>How to Use This Password Generator</h2>
+          
+          <h3 className="text-xl font-semibold mt-6 mb-3">Basic Generation:</h3>
+          <ol className="space-y-2">
+            <li>Set your desired password length (8-128 characters)</li>
+            <li>Choose character types to include (uppercase, lowercase, numbers, symbols)</li>
+            <li>Click "Generate Password" to create a random password</li>
+            <li>Copy the password and use it for your accounts</li>
+          </ol>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">Advanced Options:</h3>
+          <ul className="space-y-2">
+            <li><strong>Exclude Similar Characters:</strong> Remove confusing characters like 0/O, 1/I/l</li>
+            <li><strong>Exclude Ambiguous:</strong> Remove characters that might cause issues in URLs or code</li>
+            <li><strong>Multiple Passwords:</strong> Generate several options at once</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Password Security Best Practices</h2>
+          <ul className="space-y-3">
+            <li>
+              <strong>Use Long Passwords:</strong> Aim for 12+ characters. Length is more important than complexity
+            </li>
+            <li>
+              <strong>Use Unique Passwords:</strong> Never reuse passwords across different accounts
+            </li>
+            <li>
+              <strong>Use Password Managers:</strong> Store complex passwords securely instead of remembering them
+            </li>
+            <li>
+              <strong>Enable Two-Factor Authentication:</strong> Add an extra layer of security beyond passwords
+            </li>
+            <li>
+              <strong>Avoid Common Patterns:</strong> Don't use personal information, dictionary words, or simple patterns
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Password Strength Guidelines</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Weak (8-11 characters)</h3>
+              <p>
+                Suitable only for low-risk accounts. Can be cracked quickly with modern hardware.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Medium (12-15 characters)</h3>
+              <p>
+                Good for most personal accounts. Provides reasonable protection against casual attacks.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Strong (16+ characters)</h3>
+              <p>
+                Excellent security for sensitive accounts, financial services, and administrative access.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: How long should my password be?</h3>
+              <p>
+                At minimum 12 characters for personal accounts, 16+ for sensitive accounts. Length provides 
+                much better security than complexity alone. A 12-character random password is stronger than 
+                an 8-character complex one.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Should I use special characters?</h3>
+              <p>
+                Yes, including special characters increases password strength. However, some systems have 
+                restrictions on special characters. When possible, include them for maximum security.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Is this password generator secure?</h3>
+              <p>
+                Yes, completely secure. Passwords are generated client-side using cryptographically secure 
+                random number generators. No passwords are stored, logged, or transmitted. Your generated 
+                passwords never leave your browser.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Can I use this for production systems?</h3>
+              <p>
+                This tool is great for generating passwords for development, testing, and personal use. For 
+                production systems, consider using dedicated password management solutions or server-side 
+                generation with proper entropy sources.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Password Cracking Methods</h2>
+          <p>Understanding how passwords are attacked helps you create stronger ones:</p>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Brute Force</h3>
+              <p>
+                Trying every possible combination. Long passwords with many character types make this 
+                computationally infeasible.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Dictionary Attacks</h3>
+              <p>
+                Trying common words and phrases. Avoid dictionary words, even with substitutions.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Rainbow Tables</h3>
+              <p>
+                Pre-computed hash tables. Unique salts prevent rainbow table attacks.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Related Tools</h2>
+          <ul className="space-y-2">
+            <li><a href="/tools/hash" className="text-blue-600 dark:text-blue-400 hover:underline">Hash Generator</a> - Hash passwords for storage</li>
+            <li><a href="/tools/uuid" className="text-blue-600 dark:text-blue-400 hover:underline">UUID Generator</a> - Generate unique identifiers</li>
+            <li><a href="/tools/jwt" className="text-blue-600 dark:text-blue-400 hover:underline">JWT Decoder</a> - Work with authentication tokens</li>
+          </ul>
+        </section>
+      </article>
     </ToolLayout>
   )
 }

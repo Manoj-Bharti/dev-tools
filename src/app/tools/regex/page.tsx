@@ -129,6 +129,175 @@ export default function RegexTool() {
           </p>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto mt-16">
+        <section className="mb-12">
+          <h2>What are Regular Expressions?</h2>
+          <p>
+            Regular expressions (regex or regexp) are powerful patterns used to match, search, and manipulate 
+            text. They provide a concise way to describe complex text patterns, making them invaluable for 
+            text processing, validation, parsing, and data extraction.
+          </p>
+          <p>
+            Regex patterns consist of literal characters and special metacharacters that define rules for 
+            matching text. They're supported in most programming languages and are essential for tasks like 
+            email validation, data parsing, and text transformation.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>How to Use This Regex Tester</h2>
+          
+          <h3 className="text-xl font-semibold mt-6 mb-3">Basic Testing:</h3>
+          <ol className="space-y-2">
+            <li>Enter your regular expression pattern in the regex field</li>
+            <li>Input test text in the text area below</li>
+            <li>Choose matching options (global, case-insensitive, multiline)</li>
+            <li>View matches highlighted in the text with capture groups</li>
+          </ol>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">Understanding Results:</h3>
+          <ul className="space-y-2">
+            <li><strong>Match Count:</strong> Total number of matches found</li>
+            <li><strong>Highlighted Text:</strong> Matched portions are highlighted</li>
+            <li><strong>Capture Groups:</strong> Extracted subgroups shown below</li>
+            <li><strong>Match Details:</strong> Position and content of each match</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Common Use Cases</h2>
+          <ul className="space-y-3">
+            <li>
+              <strong>Email Validation:</strong> Verify email address formats with complex patterns
+            </li>
+            <li>
+              <strong>Data Extraction:</strong> Pull specific information from unstructured text
+            </li>
+            <li>
+              <strong>Input Validation:</strong> Ensure user input matches expected formats
+            </li>
+            <li>
+              <strong>Text Processing:</strong> Find and replace patterns in large text files
+            </li>
+            <li>
+              <strong>Log Analysis:</strong> Extract information from server logs and error messages
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Basic Regex Syntax</h2>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Literal Characters</h3>
+              <p>Most characters match themselves: <code>abc</code> matches "abc"</p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Character Classes</h3>
+              <p>
+                <code>[abc]</code> - Match any single character in brackets<br/>
+                <code>[^abc]</code> - Match any character NOT in brackets<br/>
+                <code>[a-z]</code> - Match range of characters
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Quantifiers</h3>
+              <p>
+                <code>*</code> - Zero or more<br/>
+                <code>+</code> - One or more<br/>
+                <code>?</code> - Zero or one<br/>
+                <code>{'{n}'}</code> - Exactly n times
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Anchors</h3>
+              <p>
+                <code>^</code> - Start of line/string<br/>
+                <code>$</code> - End of line/string<br/>
+                <code>\b</code> - Word boundary
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Why isn't my regex working?</h3>
+              <p>
+                Common issues: missing escape characters for special regex symbols, incorrect quantifier 
+                placement, or forgetting that some characters have special meaning. Test with simple patterns 
+                first and build complexity gradually.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: What's the difference between greedy and lazy matching?</h3>
+              <p>
+                Greedy quantifiers (*, +, {'{n,}'}) match as much as possible. Lazy versions (*?, +?, {'{n,}?'} ) 
+                match as little as possible. Use lazy matching when you want the shortest possible match.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: How do I match special characters literally?</h3>
+              <p>
+                Escape special characters with backslashes: <code>\.</code> for literal dot, <code>\*</code> for 
+                literal asterisk, <code>\?</code> for literal question mark. Characters like ., *, +, ?, ^, $, 
+                (, ), [, ], {, }, | need escaping.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: What's a capture group?</h3>
+              <p>
+                Parentheses create capture groups: <code>(abc)</code> captures "abc". You can reference captured 
+                groups in replacements or access them programmatically. Non-capturing groups <code>(?:abc)</code> 
+                group without capturing.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Regex Flags</h2>
+          <p>This tool supports common regex flags:</p>
+          
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Global (g)</h3>
+              <p>Find all matches, not just the first one</p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Case Insensitive (i)</h3>
+              <p>Ignore case differences (A matches a)</p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Multiline (m)</h3>
+              <p>^ and $ match line beginnings/endings, not just string start/end</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Related Tools</h2>
+          <ul className="space-y-2">
+            <li><a href="/tools/json" className="text-blue-600 dark:text-blue-400 hover:underline">JSON Formatter</a> - Validate and format JSON data</li>
+            <li><a href="/tools/url" className="text-blue-600 dark:text-blue-400 hover:underline">URL Encoder</a> - Encode URLs for web use</li>
+            <li><a href="/tools/diff" className="text-blue-600 dark:text-blue-400 hover:underline">Diff Checker</a> - Compare text differences</li>
+          </ul>
+        </section>
+      </article>
     </ToolLayout>
   )
 }

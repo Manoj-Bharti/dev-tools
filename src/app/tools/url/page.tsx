@@ -139,6 +139,123 @@ export default function URLTool() {
           </ul>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto mt-16">
+        <section className="mb-12">
+          <h2>What is URL Encoding?</h2>
+          <p>
+            URL encoding, also known as percent-encoding, is a mechanism for converting characters that are not 
+            allowed in a URL into a format that can be transmitted over the internet. It replaces unsafe ASCII 
+            characters with a "%" followed by two hexadecimal digits representing the character's ASCII value.
+          </p>
+          <p>
+            For example, a space character (ASCII 32) becomes %20, and the plus sign (+) becomes %2B. This ensures 
+            that URLs can contain special characters, spaces, and non-ASCII characters without breaking web 
+            standards or causing parsing errors.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>How to Use This URL Encoder/Decoder</h2>
+          
+          <h3 className="text-xl font-semibold mt-6 mb-3">Encoding URLs:</h3>
+          <ol className="space-y-2">
+            <li>Choose between "Encode URI" or "Encode URI Component" mode</li>
+            <li>Paste your text or URL containing special characters</li>
+            <li>Click "Encode" to convert unsafe characters to percent-encoded format</li>
+            <li>Copy the encoded result for use in URLs, APIs, or web applications</li>
+          </ol>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">Decoding URLs:</h3>
+          <ol className="space-y-2">
+            <li>Switch to "Decode" mode</li>
+            <li>Paste your percent-encoded URL or text</li>
+            <li>Click "Decode" to convert back to readable text</li>
+            <li>Get the original text with all special characters restored</li>
+          </ol>
+        </section>
+
+        <section className="mb-12">
+          <h2>Common Use Cases</h2>
+          <ul className="space-y-3">
+            <li>
+              <strong>API Development:</strong> Encode query parameters and form data before sending HTTP requests
+            </li>
+            <li>
+              <strong>Web Development:</strong> Safely include user input in URLs without breaking navigation
+            </li>
+            <li>
+              <strong>Data Transmission:</strong> Ensure special characters in data don't interfere with URL parsing
+            </li>
+            <li>
+              <strong>SEO Optimization:</strong> Encode URLs for better search engine compatibility
+            </li>
+            <li>
+              <strong>Debugging:</strong> Decode encoded URLs to understand what data is being transmitted
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>encodeURI vs encodeURIComponent</h2>
+          <p>
+            JavaScript provides two URL encoding functions with different purposes:
+          </p>
+          
+          <h3 className="text-xl font-semibold mt-6 mb-3">encodeURI</h3>
+          <p>
+            Designed for encoding complete URIs. It preserves characters that have special meaning in URLs 
+            like :, /, ;, and ?. Use this when you want to encode an entire URL.
+          </p>
+
+          <h3 className="text-xl font-semibold mt-6 mb-3">encodeURIComponent</h3>
+          <p>
+            Encodes all characters that could cause parsing problems in URL components. It encodes everything 
+            including :, /, ;, and ?. Use this for individual URL components like query parameters.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: When should I use URL encoding?</h3>
+              <p>
+                Use URL encoding whenever you need to include special characters, spaces, or non-ASCII characters 
+                in URLs. This includes query parameters, form data, and any user input that becomes part of a URL.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Is URL encoding the same as Base64?</h3>
+              <p>
+                No, they're different. URL encoding replaces individual characters with %XX sequences, while 
+                Base64 converts binary data to a text representation using 64 different characters. URL encoding 
+                is specifically for making text URL-safe.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Do I need to decode URLs before using them?</h3>
+              <p>
+                Most modern browsers and HTTP libraries automatically decode URLs. However, if you're processing 
+                URL data manually or debugging, you may need to decode them to see the original content.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Related Tools</h2>
+          <ul className="space-y-2">
+            <li><a href="/tools/base64" className="text-blue-600 dark:text-blue-400 hover:underline">Base64 Encoder</a> - Alternative encoding method</li>
+            <li><a href="/tools/json" className="text-blue-600 dark:text-blue-400 hover:underline">JSON Formatter</a> - Format API responses</li>
+            <li><a href="/tools/jwt" className="text-blue-600 dark:text-blue-400 hover:underline">JWT Decoder</a> - Decode authentication tokens</li>
+          </ul>
+        </section>
+      </article>
     </ToolLayout>
   )
 }

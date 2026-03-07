@@ -139,6 +139,160 @@ export default function JWTTool() {
           </p>
         </div>
       </div>
+
+      {/* SEO Content Section */}
+      <article className="prose prose-lg dark:prose-invert max-w-4xl mx-auto mt-16">
+        <section className="mb-12">
+          <h2>What is JWT (JSON Web Token)?</h2>
+          <p>
+            JWT (JSON Web Token) is an open standard (RFC 7519) for securely transmitting information between parties 
+            as a JSON object. JWTs are commonly used for authentication and information exchange in modern web 
+            applications, APIs, and microservices architectures.
+          </p>
+          <p>
+            A JWT consists of three parts separated by dots (.): <code>header.payload.signature</code>
+          </p>
+          <ul>
+            <li><strong>Header:</strong> Contains the token type (JWT) and signing algorithm (e.g., HS256, RS256)</li>
+            <li><strong>Payload:</strong> Contains the claims (user data, permissions, expiration time, etc.)</li>
+            <li><strong>Signature:</strong> Verifies the token hasn't been tampered with</li>
+          </ul>
+          <p>
+            JWTs are Base64URL encoded, making them URL-safe and easy to transmit in HTTP headers, cookies, or 
+            query parameters.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>How to Use This JWT Decoder</h2>
+          <ol className="space-y-2">
+            <li>Copy your JWT token from your application, API response, or browser storage</li>
+            <li>Paste the token into the input field</li>
+            <li>The tool instantly decodes and displays the header and payload in formatted JSON</li>
+            <li>View token expiration time and check if it's still valid</li>
+            <li>Optionally provide a secret key to verify the signature (HS256 tokens only)</li>
+          </ol>
+          <p className="mt-4">
+            <strong>Note:</strong> This decoder only validates structure and signature. It doesn't verify claims 
+            like issuer, audience, or custom validation rules - that's your application's job.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>Common Use Cases</h2>
+          <ul className="space-y-3">
+            <li>
+              <strong>Debugging Authentication Issues:</strong> Quickly inspect JWT tokens to see what claims and 
+              permissions are included, helping debug authorization problems.
+            </li>
+            <li>
+              <strong>Checking Token Expiration:</strong> View the 'exp' (expiration) claim to see when a token 
+              will expire and if it's still valid.
+            </li>
+            <li>
+              <strong>API Development:</strong> Verify that your API is generating tokens with the correct claims, 
+              structure, and signing algorithm.
+            </li>
+            <li>
+              <strong>Security Audits:</strong> Review JWTs from third-party services to ensure they don't contain 
+              sensitive information that shouldn't be in a client-visible token.
+            </li>
+            <li>
+              <strong>Learning & Education:</strong> Understand how JWTs work by examining real tokens from 
+              applications you use.
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Understanding JWT Claims</h2>
+          <p>Common standard claims you'll see in JWT payloads:</p>
+          <ul className="space-y-2">
+            <li><code>iss</code> (Issuer): Who created the token</li>
+            <li><code>sub</code> (Subject): Who the token is about (usually user ID)</li>
+            <li><code>aud</code> (Audience): Who the token is intended for</li>
+            <li><code>exp</code> (Expiration): When the token expires (Unix timestamp)</li>
+            <li><code>iat</code> (Issued At): When the token was created</li>
+            <li><code>nbf</code> (Not Before): Token isn't valid before this time</li>
+            <li><code>jti</code> (JWT ID): Unique identifier for this token</li>
+          </ul>
+          <p className="mt-4">
+            Plus any custom claims your application adds, like user roles, permissions, email, etc.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2>Frequently Asked Questions</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Is JWT decoding secure? Can you see my tokens?</h3>
+              <p>
+                All decoding happens in your browser using JavaScript. Your JWT tokens NEVER leave your device - 
+                nothing is sent to our servers. You can verify this in your browser's network tab or use this tool 
+                offline. Your tokens are completely private.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Can I decode a JWT without the secret key?</h3>
+              <p>
+                Yes! JWTs are Base64URL encoded, not encrypted. You can always decode the header and payload to 
+                view the data inside. However, you need the secret key (for HS256) or public key (for RS256) to 
+                verify the signature and ensure the token hasn't been tampered with.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Why does my JWT show as expired but still works?</h3>
+              <p>
+                Some applications don't enforce expiration strictly, or they use a grace period. However, relying 
+                on expired tokens is a security risk. The 'exp' claim is there for a reason - expired tokens 
+                should be refreshed.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: What's the difference between HS256 and RS256?</h3>
+              <p>
+                HS256 (HMAC with SHA-256) uses a shared secret key for both signing and verification. RS256 
+                (RSA with SHA-256) uses a private key to sign and a public key to verify. RS256 is more secure 
+                for public APIs because you can distribute the public key without compromising security.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Q: Can I modify a JWT and re-sign it?</h3>
+              <p>
+                This tool is for decoding only. To modify and re-sign JWTs, you'd need the secret key and 
+                server-side tools. Never try to forge JWTs - the signature will be invalid and servers will 
+                reject them.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="mb-12">
+          <h2>Security Best Practices</h2>
+          <ul className="space-y-2">
+            <li><strong>Always use HTTPS:</strong> JWTs should only be transmitted over secure connections</li>
+            <li><strong>Keep tokens short-lived:</strong> Use expiration times (exp claim) and refresh tokens</li>
+            <li><strong>Don't store sensitive data:</strong> JWTs are not encrypted - anyone can decode them</li>
+            <li><strong>Use strong secrets:</strong> For HS256, use cryptographically random keys of sufficient length</li>
+            <li><strong>Validate all claims:</strong> Always verify iss, aud, exp, and other claims server-side</li>
+            <li><strong>Use httpOnly cookies:</strong> Store JWTs in httpOnly cookies to prevent XSS attacks</li>
+          </ul>
+        </section>
+
+        <section className="mb-12">
+          <h2>Related Tools</h2>
+          <ul className="space-y-2">
+            <li><a href="/tools/base64" className="text-blue-600 dark:text-blue-400 hover:underline">Base64 Encoder/Decoder</a> - Decode the Base64URL encoding used in JWTs</li>
+            <li><a href="/tools/json" className="text-blue-600 dark:text-blue-400 hover:underline">JSON Formatter</a> - Format and validate JWT payload JSON</li>
+            <li><a href="/tools/timestamp" className="text-blue-600 dark:text-blue-400 hover:underline">Timestamp Converter</a> - Convert JWT exp/iat timestamps to readable dates</li>
+          </ul>
+        </section>
+      </article>
     </ToolLayout>
   )
 }
