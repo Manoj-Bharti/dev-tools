@@ -220,7 +220,7 @@ export default function RegexTool() {
               <p>
                 <code>^</code> - Start of line/string<br/>
                 <code>$</code> - End of line/string<br/>
-                <code>\b</code> - Word boundary
+                <code>{'\\b'}</code> - Word boundary
               </p>
             </div>
           </div>
@@ -250,9 +250,9 @@ export default function RegexTool() {
             <div>
               <h3 className="text-lg font-semibold mb-2">Q: How do I match special characters literally?</h3>
               <p>
-                Escape special characters with backslashes: <code>\.</code> for literal dot, <code>\*</code> for 
-                literal asterisk, <code>\?</code> for literal question mark. Characters like ., *, +, ?, ^, $, 
-                (, ), [, ], {, }, | need escaping.
+                Escape special characters with backslashes: <code>{'\\.'}</code> for literal dot, <code>{'\\*'}</code> for 
+                literal asterisk, <code>{'\\?'}</code> for literal question mark. Characters like ., *, +, ?, ^, $, 
+                (, ), [, ], {'{'} {'}'}, | need escaping.
               </p>
             </div>
 
