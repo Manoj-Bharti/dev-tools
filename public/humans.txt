@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: DevToolkit Contributors
+Site: https://common-dev-tools.netlify.app
+GitHub: https://github.com/Manoj-Bharti/dev-tools
+Contact: contact@common-dev-tools.com
+/* THANKS */
+Next.js, React, Tailwind CSS, and all the amazing open source contributors
+/* SITE */
+Last update: 2026/03/01
+Standards: HTML5, CSS3, ES6
+Components: React, TypeScript
+Software: Next.js 14, Tailwind CSS

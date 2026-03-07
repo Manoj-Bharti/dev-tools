@@ -6,6 +6,7 @@ import { Box, Flex, Theme } from '@radix-ui/themes'
 import { Header } from '../components/navigation/Header'
 import { Sidebar } from '../components/navigation/Sidebar'
 import { RegisterSW } from '../components/PWA/RegisterSW'
+import Footer from '../components/Footer'
 
 export function RootLayoutClient({ children }: { children: React.ReactNode }) {
   const [appearance, setAppearance] = useState<'dark' | 'light'>(() => {
@@ -39,11 +40,7 @@ export function RootLayoutClient({ children }: { children: React.ReactNode }) {
           </main>
         </Flex>
 
-        <footer style={{ borderTop: '1px solid var(--gray-6)', backgroundColor: 'var(--gray-2)', padding: '1rem' }}>
-          <div style={{ maxWidth: 1120, margin: '0 auto', textAlign: 'center', color: 'var(--gray-11)', fontSize: 14 }}>
-            Built with care — all processing happens in your browser.
-          </div>
-        </footer>
+        <Footer />
 
         <RegisterSW />
 

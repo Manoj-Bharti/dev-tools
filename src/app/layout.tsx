@@ -12,10 +12,47 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'DevToolkit - Free Online Developer Tools',
+    default: 'DevToolkit - Free Privacy-First Developer Tools',
     template: '%s | DevToolkit',
   },
-  description: 'Free online developer tools. All processing happens in your browser.',
+  description: 'Free, privacy-first developer utilities. All tools run in your browser - no data collection, no tracking, completely client-side.',
+  keywords: [
+    'developer tools',
+    'base64 encoder',
+    'jwt decoder',
+    'json formatter',
+    'privacy tools',
+    'client-side tools',
+    'free developer utilities'
+  ],
+  authors: [{ name: 'DevToolkit Contributors' }],
+  creator: 'DevToolkit Contributors',
+  publisher: 'DevToolkit',
+  metadataBase: new URL('https://common-dev-tools.netlify.app'),
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://common-dev-tools.netlify.app',
+    title: 'DevToolkit - Free Privacy-First Developer Tools',
+    description: 'Free, privacy-first developer utilities. All tools run in your browser.',
+    siteName: 'DevToolkit',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DevToolkit - Free Privacy-First Developer Tools',
+    description: 'Free, privacy-first developer utilities. All tools run in your browser.',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

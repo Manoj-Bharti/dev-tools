@@ -35,4 +35,35 @@ test.describe('Navigation', () => {
     await page.click('a[href="/tools/base64"]')
     await expect(page).toHaveURL('/tools/base64')
   })
+
+  test('footer links to legal and info pages', async ({ page }) => {
+    await page.goto('/')
+    const links = [
+      '/privacy',
+      '/terms',
+      '/about',
+      '/contact',
+    ]
+    for (const path of links) {
+      await page.click(`footer a[href="${path}"]`)
+      await page.waitForURL(path)
+      await expect(page).toHaveURL(path)
+      await page.goto('/')
+    }
+  })
+
+  test('table of contents anchors work on privacy and terms pages', async ({ page }) => {
+    const pages = ['/privacy', '/terms']
+    for (const p of pages) {
+      await page.goto(p)
+      // click first anchor in the toc
+      const firstAnchor = await page.locator('.toc a').first()
+      const href = await firstAnchor.getAttribute('href')
+      if (href) {
+        await firstAnchor.click()
+        // ensure URL contains hash
+        await expect(page).toHaveURL(new RegExp(`${p}#`))
+      }
+    }
+  })
 })
